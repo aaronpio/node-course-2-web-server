@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;  //runs on heroku or locally
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');  //allows use of partials(hbs)
@@ -52,6 +54,6 @@ app.get(('/bad'), (req, res) => {
     })
 });
 
-app.listen((3000), () => {
-    console.log('Server is on port 3000 yo')
+app.listen(port, () => {
+    console.log(`Server is on port ${port} yo`)
 });
